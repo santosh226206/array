@@ -1,0 +1,56 @@
+#include <stdio.h>
+ 
+ 
+ // } Driver Code Ends
+//User function Template for C
+void swap(int *arr,int x,int y){
+    int temp=arr[x];
+    arr[x]=arr[y];
+    arr[y]=temp;
+}
+void sort012(int nums[], int n)
+{
+        int low = 0;
+        int mid = 0;
+        int high = n-1;
+        while(mid<=high){
+            if(nums[mid]==0){
+                swap(nums,mid,low);
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1){
+                mid++;
+            }
+            else{
+                swap(nums,high,mid);
+                high--;
+            }
+        }
+    }
+ 
+ 
+ 
+// { Driver Code Starts.
+ 
+int main() {
+ 
+    int t;
+    scanf("%d", &t);
+ 
+    while(t--){
+        int n;
+        scanf("%d", &n);
+        int arr[n];
+        for(int i=0;i<n;i++){
+            scanf("%d", &arr[i]);
+        }
+ 
+        sort012(arr, n);
+ 
+        for (int i = 0; i < n; i++)
+            printf("%d ", arr[i]);
+        printf("\n");
+    }
+    return 0;
+}
